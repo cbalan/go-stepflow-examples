@@ -1,0 +1,27 @@
+name: Lint
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    name: Run on Ubuntu
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./kubernetes-controller/
+    steps:
+      - name: Clone the code
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: ./kubernetes-controller/go.mod
+
+      - name: Run linter
+        uses: golangci/golangci-lint-action@v8
+        with:
+          version: v2.1.6
+          working-directory: ./kubernetes-controller/
