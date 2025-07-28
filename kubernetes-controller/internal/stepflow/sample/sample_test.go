@@ -7,7 +7,7 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	samplev1alpha1 "github.com/cbalan/go-stepflow-sample-controller/api/v1alpha1"
+	samplev1alpha1 "github.com/cbalan/go-stepflow-examples/kubernetes-controller/api/v1alpha1"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
