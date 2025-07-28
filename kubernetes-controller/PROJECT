@@ -8,4 +8,14 @@ layout:
 - go.kubebuilder.io/v4
 projectName: kubernetes-controller
 repo: github.com/cbalan/go-stepflow-examples/kubernetes-controller
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: stepflow
+  group: sample
+  kind: Sample
+  path: github.com/cbalan/go-stepflow-examples/kubernetes-controller/api/v1alpha1
+  version: v1alpha1
 version: "3"
