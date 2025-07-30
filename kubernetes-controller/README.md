@@ -1,8 +1,11 @@
 # kubernetes-controller
-// TODO(user): Add simple overview of use/purpose
+Sample process orchestrator example using kubebuilder and stepflow.
 
-## Description
-// TODO(user): An in-depth paragraph about your project and overview of use
+This example was bootstrapped using kubebuilder based standard process. For exact commands, please see the git log history.
+
+## Project structure
+- [internal/stepflow/sample](./internal/stepflow/sample) - provides a basic workflow definition.
+- [internal/controller](./internal/controller/) - provides a common kubernetes reconciler implementation using the sample workflow. 
 
 ## Getting Started
 
@@ -111,8 +114,6 @@ previously added to 'dist/chart/values.yaml' or 'dist/chart/manager/manager.yaml
 is manually re-applied afterwards.
 
 ## Contributing
-// TODO(user): Add detailed information on how you would like others to contribute to this project
-
 **NOTE:** Run `make help` for more information on all potential `make` targets
 
 More information can be found via the [Kubebuilder Documentation](https://book.kubebuilder.io/introduction.html)
