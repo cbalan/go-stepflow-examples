@@ -22,7 +22,6 @@ func step2(ctx context.Context) error {
 	return nil
 }
 
-// Define workflow
 func quickStartStepFlow() (stepflow.StepFlow, error) {
 	return stepflow.NewStepFlow(stepflow.Steps().WithName("quickstart.v1").
 		Do("step1", step1).
@@ -42,8 +41,6 @@ func main() {
 	var state []string
 	i := 0
 	for !flow.IsCompleted(state) {
-		i++
-
 		// Could load state from persistent storage.
 		fmt.Printf("[%d] old state: %v \n", i, state)
 
@@ -55,5 +52,7 @@ func main() {
 
 		// Could save state to persistent storage.
 		fmt.Printf("[%d] new state: %v \n\n", i, state)
+
+		i++
 	}
 }
