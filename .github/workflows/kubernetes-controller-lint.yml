@@ -2,7 +2,11 @@ name: Lint
 
 on:
   push:
+    paths:
+      - 'kubernetes-controller/**'
   pull_request:
+    paths:
+      - 'kubernetes-controller/**'
 
 jobs:
   lint:
