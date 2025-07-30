@@ -85,8 +85,7 @@ func step3(ctx context.Context) error {
 }
 
 func NewStepFlow() (stepflow.StepFlow, error) {
-	return stepflow.NewStepFlow(stepflow.Steps().
-		WithName("sample/v1").
+	return stepflow.NewStepFlow(stepflow.Steps().WithName("sample.v1").
 		Do("step1", step1).
 		WaitFor("someTimeToPass", someTimeToPass).
 		Do("step3", step3))
