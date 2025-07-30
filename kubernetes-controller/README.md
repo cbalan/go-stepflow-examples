@@ -5,7 +5,7 @@ This example was bootstrapped using kubebuilder based standard process. For exac
 
 ## Project structure
 - [internal/stepflow/sample](./internal/stepflow/sample) - provides a basic workflow definition.
-- [internal/controller](./internal/controller/) - provides a common kubernetes reconciler implementation using the sample workflow. 
+- [internal/controller](./internal/controller/sample_controller.go#L58) - provides a common kubernetes reconciler implementation using the sample workflow.
 
 ## Getting Started
 
