@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	
+
 	"github.com/cbalan/go-stepflow"
 )
 
@@ -22,26 +22,38 @@ func step2(ctx context.Context) error {
 	return nil
 }
 
-func main() {
-	// Define workflow
-	flow, err := stepflow.NewStepFlow(stepflow.Steps().WithName("quickstart.v1").
+// Define workflow
+func quickStartStepFlow() (stepflow.StepFlow, error) {
+	return stepflow.NewStepFlow(stepflow.Steps().WithName("quickstart.v1").
 		Do("step1", step1).
 		WaitFor("aCondition", aCondition).
 		Do("step2", step2))
+}
 
+func main() {
+
+	// Workflow definition.
+	flow, err := quickStartStepFlow()
 	if err != nil {
 		panic(err)
 	}
 
-	// Execute workflow
-	var state []string // Could be loaded from persistent storage
+	// Workflow execution.
+	var state []string
+	i := 0
 	for !flow.IsCompleted(state) {
+		i++
+
+		// Could load state from persistent storage.
+		fmt.Printf("[%d] old state: %v \n", i, state)
+
+		// Apply workflow on the old state
 		state, err = flow.Apply(context.Background(), state)
 		if err != nil {
 			panic(err)
 		}
 
-		fmt.Println("new state: ", state)
-		// Persist state here if needed
+		// Could save state to persistent storage.
+		fmt.Printf("[%d] new state: %v \n\n", i, state)
 	}
 }
