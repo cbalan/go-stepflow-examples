@@ -29,6 +29,21 @@ func quickStartStepFlow() (stepflow.StepFlow, error) {
 		Do("step2", step2))
 }
 
+// Expected output:
+//    [0] old state: []
+//    Executing step 1
+//    [0] new state: [completed:quickstart.v1/step1]
+//
+//    [1] old state: [completed:quickstart.v1/step1]
+//    Return true when ready to proceed.
+//    [1] new state: [completed:quickstart.v1/aConditionWaitFor]
+//
+//    [2] old state: [completed:quickstart.v1/aConditionWaitFor]
+//    Executing step 2
+//    [2] new state: [completed:quickstart.v1/step2]
+//
+//    [3] old state: [completed:quickstart.v1/step2]
+//    [3] new state: [completed:quickstart.v1]
 func main() {
 
 	// Workflow definition.
