@@ -1,7 +1,7 @@
 # kubernetes-controller
 Sample process orchestrator powered by:
 - Kubernetes custom controller infrastructure to act as an api frontend and state persistent storage.
-- StepFlow library used to describe a multi step process.
+- StepFlow library used to describe a [multistep process](./internal/stepflow/sample).
 
 The custom controller [Reconcile](./internal/controller/sample_controller.go#L58) function is the integration point 
 between Kubernetes infrastructure and StepFlow, where every reconciliation loop is progressing the StepFlow to the next step. 
@@ -10,10 +10,7 @@ between Kubernetes infrastructure and StepFlow, where every reconciliation loop 
 3. On error, the Sample resource Completed condition is marked as completed with an error reason.
 4. On StepFlow.IsCompleted case, the Sample resource Completed condition is marked as completed with a success reason.
 
-## Project structure
-- This example was bootstrapped using kubebuilder based standard process.
-- [internal/stepflow/sample](./internal/stepflow/sample) - provides a basic workflow definition.
-- [internal/controller](./internal/controller/sample_controller.go#L58) - provides a common kubernetes reconciler implementation using the sample workflow.
+This example was bootstrapped using kubebuilder based standard process.
 
 ## Getting Started
 
