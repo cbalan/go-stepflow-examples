@@ -1,6 +1,6 @@
 # kubernetes-controller
 Sample process orchestrator powered by:
-- Kubernetes custom controller infrastructure to act as an api frontend and persistent storage.
+- Kubernetes custom controller infrastructure to act as an api frontend and state persistent storage.
 - StepFlow library used to describe a multi step process.
 
 The custom controller [Reconcile](./internal/controller/sample_controller.go#L58) function is the integration point 
