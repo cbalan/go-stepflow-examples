@@ -29,8 +29,7 @@ func DemoSteps() *stepflow.StepsSpec {
 			Do("step1", noop).
 			WaitFor("step1ToBeDone", alwaysTrue)))
 
-	return stepflow.Steps().
-		WithName("deploy.v1").
+	return stepflow.Named("deploy.v1").
 		Do("getPreActualState", noop).
 		WaitFor("preActualState", alwaysTrue).
 		Case("shouldDeploy", alwaysTrue, stepflow.Steps().
@@ -41,5 +40,4 @@ func DemoSteps() *stepflow.StepsSpec {
 			WaitFor("postActualState", alwaysTrue).
 			Do("validatePostDeployActualState", noop)).
 		Steps("basicSteps", basicSteps)
-
 }

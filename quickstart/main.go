@@ -23,27 +23,28 @@ func step2(ctx context.Context) error {
 }
 
 func quickStartStepFlow() (stepflow.StepFlow, error) {
-	return stepflow.NewStepFlow(stepflow.Steps().WithName("quickstart.v1").
+	return stepflow.NewStepFlow(stepflow.Named("quickstart.v1").
 		Do("step1", step1).
 		WaitFor("aCondition", aCondition).
 		Do("step2", step2))
 }
 
 // Expected output:
-//    [0] old state: []
-//    Executing step 1
-//    [0] new state: [completed:quickstart.v1/step1]
 //
-//    [1] old state: [completed:quickstart.v1/step1]
-//    Return true when ready to proceed.
-//    [1] new state: [completed:quickstart.v1/aConditionWaitFor]
+//	[0] old state: []
+//	Executing step 1
+//	[0] new state: [completed:quickstart.v1/step1]
 //
-//    [2] old state: [completed:quickstart.v1/aConditionWaitFor]
-//    Executing step 2
-//    [2] new state: [completed:quickstart.v1/step2]
+//	[1] old state: [completed:quickstart.v1/step1]
+//	Return true when ready to proceed.
+//	[1] new state: [completed:quickstart.v1/aConditionWaitFor]
 //
-//    [3] old state: [completed:quickstart.v1/step2]
-//    [3] new state: [completed:quickstart.v1]
+//	[2] old state: [completed:quickstart.v1/aConditionWaitFor]
+//	Executing step 2
+//	[2] new state: [completed:quickstart.v1/step2]
+//
+//	[3] old state: [completed:quickstart.v1/step2]
+//	[3] new state: [completed:quickstart.v1]
 func main() {
 
 	// Workflow definition.
