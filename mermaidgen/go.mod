@@ -1,9 +1,9 @@
 module github.com/cbalan/go-stepflow-examples/mermaidgen
 
-go 1.24.4
+go 1.26
 
 require (
-	github.com/cbalan/go-stepflow v0.4.0
+	github.com/cbalan/go-stepflow v0.4.1
 	github.com/cbalan/go-stepflow-examples/util v0.0.0
 )
 
