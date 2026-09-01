@@ -18,6 +18,7 @@ package v1alpha1
 
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/runtime"
 )
 
 const (
@@ -74,5 +75,8 @@ type SampleList struct {
 }
 
 func init() {
-	SchemeBuilder.Register(&Sample{}, &SampleList{})
+	SchemeBuilder.Register(func(s *runtime.Scheme) error {
+		s.AddKnownTypes(SchemeGroupVersion, &Sample{}, &SampleList{})
+		return nil
+	})
 }
